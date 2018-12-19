@@ -41,7 +41,7 @@ npm run commit
 Manual code commit and pre commit check(format, lint, security and test)
 ```
 git add .
-git commit --m "["story"]["Authors"] Commit message gose here"
+git commit --m "Commit message gose here"
 ```
 
 Manually check code quality(format, lint, security and test) before push
