@@ -1,0 +1,14 @@
+{
+  "all": true,
+  "modules": [
+    "files-ccnumber",
+    "files-contents",
+    "files-secrets",
+    "node-crossenv",
+    "node-npmaudit",
+    "node-npmoutdated"
+  ],
+  "json": "log/results.json",
+  "failOn": "critical",
+  "showCode": true
+}

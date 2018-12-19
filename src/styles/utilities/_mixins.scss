@@ -1,0 +1,105 @@
+// Mixins
+
+// Reset List
+@mixin reset-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+// Hovers
+@mixin hover {
+  &:hover,
+  &:active,
+  &:focus {
+    @content;
+  }
+}
+
+// Feature Detection
+@mixin supported($feature) {
+  .#{$feature} & {
+    @content;
+  }
+}
+
+@mixin not-supported($feature) {
+  .no-js &,
+  .no-#{$feature} & {
+    @content;
+  }
+}
+
+// Media Queries
+// $breakpoint - Desired breakpoint. Can be variable or unit.
+// $query - Defaults to `min-width`.
+// $type - Defaults to `screen`.
+
+@mixin mq($breakpoint, $query: "min-width", $type: "screen") {
+  @if $fix-mqs {
+    @if $fix-mqs >= $breakpoint {
+      @content;
+    }
+  } @else {
+    @media #{$type} and (#{$query}: #{$breakpoint}) {
+      @content;
+    }
+  }
+}
+
+// Clear-fix
+@mixin clearfix {
+  zoom: 1;
+
+  &:before,
+  &:after {
+    content: "";
+    display: table;
+  }
+
+  &:after {
+    clear: both;
+  }
+}
+
+// Hide Text
+@mixin hide-text {
+  overflow: hidden;
+  text-indent: 101%;
+  white-space: nowrap;
+}
+
+// Hidden
+@mixin hidden {
+  display: none;
+  visibility: hidden;
+}
+
+// Visually Hidden
+@mixin visuallyhidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+
+  &.focusable {
+    &:active,
+    &:focus {
+      clip: auto;
+      height: auto;
+      margin: 0;
+      overflow: visible;
+      position: static;
+      width: auto;
+    }
+  }
+}
+
+// Invisible
+@mixin invisible {
+  visibility: hidden;
+}
